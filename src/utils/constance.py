@@ -11,4 +11,4 @@ TARGET_COL = "resp.pCR"
 DROP_FEAT_TYPE = ["TARGET", "UNUSED"]
 
 # Global experiment
-GLOBAL_EXPT = "scikit-xml"
+GLOBAL_EXPT = "xml-workflow"
