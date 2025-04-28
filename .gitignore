@@ -169,3 +169,62 @@ cython_debug/
 
 # PyPI configuration file
 .pypirc
+
+# MLFlow artefacts
+mlruns/
+**mlruns/
+
+# Log folders
+**/run_logs/**
+run_logs/**
+
+# Archive folder
+**/archive/**
+archive/**
+
+# R data files
+*.rds
+*.rda
+*.RDS
+*.RDA
+
+# AnnData data files
+*.adata
+*.ADATA
+
+# Pickle file
+*.pkl
+*.pickle
+*.p
+
+# Tabular data files
+*.csv
+*.tsv
+*.mtx
+*.txt
+*.xlsx
+*.xls
+
+# PDF files
+*.pdf
+*.PDF
+
+# Image files
+*.png
+*.svs
+*.jpg
+*.jpeg
+*.html
+*.tiff
+*.gif
+
+# MacOS system files
+*.DS_Store
+
+# I usually create notebooks to rapidly prototype codes
+# They are called either rapid.ipynb or miscellaneous.ipynb
+# Ignore them
+rapid.ipynb
+miscellaneous.ipynb
+miscellaneous.Rmd
+miscellaneous.R
