@@ -1,4 +1,4 @@
-# xML-workFlow: an end-to-end eXplainable Machine Learning workFlow for rapid biomedical experimentation
+# xML-workFlow:<br>An end-to-end eXplainable Machine Learning workFlow for rapid biomedical experimentation
 
 [![Preprint](https://img.shields.io/badge/aRxiv-Available-darkteal)](https://arxiv.org/abs/2504.01356) &nbsp;
 [![License](https://img.shields.io/badge/License-GPL_v3.0-blue)](https://github.com/MedicalGenomicsLab/xML-workFlow/blob/main/LICENSE)
@@ -13,10 +13,9 @@ By embedding these 3 principles into `xML-workFlow`, we aim to enable biomedical
 - rapidly iterate over ML models, data versions, feature engineering techniques, etc with minimal refactoring / restructuring
 - maintain visibility and tracibility as ML experiments scale up
 
-<br></br>
+
 ![xML-workFlow](.github/images/Figure_1_white_bg.jpg)
 <strong>Schematics of xML-workFlow framework</strong>
-<br></br>
 
 
 ## Using xML-workFlow

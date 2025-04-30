@@ -1,3 +1,8 @@
+# --- 100 characters -------------------------------------------------------------------------------
+# Created by: Khoa Tran | 2025-04-30 | Utilities for training ML models
+# --------------------------------------------------------------------------------------------------
+# -*- coding: utf-8 -*-
+
 import numpy as np
 import pandas as pd
 import scanpy as sc
@@ -14,18 +19,10 @@ from sklearn.model_selection import (
     RandomizedSearchCV,
     RepeatedStratifiedKFold,
 )
-from sklearn.metrics import (
-    precision_score,
-    accuracy_score,
-    recall_score,
-    f1_score,
-    roc_auc_score,
-    confusion_matrix,
-)
 from sklearn.preprocessing import StandardScaler
 
 # Utilities
-from ..utils.constance import UNIVERSAL_RANDOM_STATE, TARGET_COL, DROP_FEAT_TYPE
+from utils.constant import UNIVERSAL_RANDOM_STATE, TARGET_COL, DROP_FEAT_TYPE
 
 
 def prepare_train_data(

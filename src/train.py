@@ -1,3 +1,8 @@
+# --- 100 characters -------------------------------------------------------------------------------
+# Created by: Khoa Tran | 2025-04-30 | Train ML models
+# --------------------------------------------------------------------------------------------------
+# -*- coding: utf-8 -*-
+
 import mlflow
 import argparse
 
@@ -8,16 +13,15 @@ import pickle as pkl
 from tqdm import tqdm
 from pathlib import Path
 from datetime import datetime
-from typing import List, Tuple, Dict
-
-# Import utilities scripts
-from funcs.train_func import run_training, prepare_train_data
-from utils.params import scoring, clfs_df
 from sklearn.metrics import (
     f1_score,
     roc_auc_score,
 )
-from utils.constance import GLOBAL_EXPT, PREDICT_LABELS
+
+# Import utilities scripts
+from utils.train_func import run_training, prepare_train_data
+from utils.params import scoring, models
+from utils.constant import GLOBAL_EXPT, PREDICT_LABELS
 
 
 def main(
@@ -42,12 +46,14 @@ def main(
     )
 
     # Get classifier to train
-    clf_df = clfs_df[clfs_df["model"] == ml_model]
-    # Quick sanity check to make sure that we only have 1 entry (i.e. 1 row) for each model
-    assert clf_df.shape[0] == 1
+    model = models[ml_model]
+    # Quick sanity check to make sure that we only have 1 model (i.e. 1 row)
+    model_df = pd.DataFrame([model])
+    assert (
+        pd.DataFrame([model]).shape[0] == 1
+    ), f"More than 1 clf for model {model} found in clfs: {models}."
     # Then get classifer object and parameters dict
-    clf = clf_df["clf"].values[0]
-    params = clf_df["params"].values[0]
+    clf, params = model["clf"], model["params"]
 
     # Create MLflow experiment if specified
     if GLOBAL_EXPT:
@@ -110,8 +116,8 @@ if __name__ == "__main__":
         "--ml-model",
         type=str,
         required=True,
-        choices=[clfs_df["model"].tolist()],
-        help="Name of ML model. Must exist in utils.params.clfs",
+        choices=list(models.keys()),
+        help="Name of ML model. Must exist in utils.params.models",
     )
     parser.add_argument(
         "--output-dir", type=str, required=True, help="Path to output directory"
